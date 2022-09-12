@@ -44,9 +44,6 @@ print('Mean accuracy (training set):', clf.score(X_train, Y_train))
 print('Mean accuracy (validation set):', clf.score(X_test, Y_test))
 print('')
 
-print('X[0]', [ str(x) for x in X_test[0] ])
-print('Res', clf.predict_proba(X_test[0].reshape((1, 21))))
-
 # here comes the magic, provide a JAX version of the `proba` function
 def minimal_predict_proba(X):
     # first the linear model
