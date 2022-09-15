@@ -4,6 +4,8 @@ This repository is an example on how to bring a [custom machine learning model](
 
 As a primer, read the [Adding custom transfer learning models](https://docs.edgeimpulse.com/docs/adding-custom-transfer-learning-models) page in the Edge Impulse docs.
 
+> **Note on epochs**: You'll want a lot of training cycles (1,000+ or so) here.
+
 ## Inference function in JAX?
 
 Custom ML blocks in Edge Impulse need to output TFLite files, which is not possible from scikit-learn. One way around this is by re-implementing the inference function using [JAX](https://jax.readthedocs.io/en/latest/), then compiling that down to TFLite. This is done in `minimal_predict_proba` in [train.py](train.py) and should be relatively straight forward for many scikit-learn functions.
