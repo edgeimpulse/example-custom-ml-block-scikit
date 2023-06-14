@@ -1,8 +1,8 @@
 # Custom Scikit Learn ML block example for Edge Impulse
 
-This repository is an example on how to [bring your own model](https://docs.edgeimpulse.com/docs/adding-custom-transfer-learning-models) into Edge Impulse. This repository contains a small logistic regression model built with Scikit Learn, and an inference function written in [JAX](https://jax.readthedocs.io/en/latest/).
+This repository is an example on how to [add a custom learning block](https://docs.edgeimpulse.com/docs/adding-custom-transfer-learning-models) to Edge Impulse. This repository contains a small logistic regression model built with Scikit Learn, and an inference function written in [JAX](https://jax.readthedocs.io/en/latest/).
 
-As a primer, read the [Bring your own model](https://docs.edgeimpulse.com/docs/adding-custom-transfer-learning-models) page in the Edge Impulse docs.
+As a primer, read the [Custom learning blocks](https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/adding-custom-learning-blocks) page in the Edge Impulse docs.
 
 > **Note on epochs**: You'll want a lot of training cycles (1,000+ or so) here.
 
