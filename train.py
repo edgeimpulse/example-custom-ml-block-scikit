@@ -14,7 +14,6 @@ np.random.seed(RANDOM_SEED)
 parser = argparse.ArgumentParser(description='Train custom ML model')
 parser.add_argument('--data-directory', type=str, required=True)
 parser.add_argument('--epochs', type=int, required=True)
-parser.add_argument('--learning-rate', type=float, required=True)
 parser.add_argument('--out-directory', type=str, required=True)
 
 args, _ = parser.parse_known_args()
