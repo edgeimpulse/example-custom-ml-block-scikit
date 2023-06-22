@@ -1,0 +1,7 @@
+[{
+    "name": "Number of training cycles",
+    "value": 1000,
+    "type": "int",
+    "help": "Number of epochs to train the logistic regression model on",
+    "param": "epochs"
+}]
