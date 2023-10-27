@@ -45,6 +45,10 @@ print('')
 
 # here comes the magic, provide a JAX version of the `proba` function
 def minimal_predict_proba(X):
+    # create extra dimension when using 2 class labels to fix downstream tflite profiling/model testing
+    if clf.coef_.shape[0] == 1:
+        clf.coef_ = jnp.vstack([clf.coef_ * -1,clf.coef_])
+        clf.intercept_ = jnp.hstack([clf.intercept_ * -1, clf.intercept_])
     # first the linear model
     # see: https://github.com/scikit-learn/scikit-learn/blob/36958fb240fbe435673a9e3c52e769f01f36bec0/sklearn/linear_model/_base.py#L430
     y = jnp.dot(X, clf.coef_.T) + clf.intercept_
