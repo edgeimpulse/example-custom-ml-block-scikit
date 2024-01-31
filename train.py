@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from conversion import convert_jax
 import jax.numpy as jnp
+import pickle
 
 # Set random seeds for repeatable results
 RANDOM_SEED = 3
@@ -43,6 +44,10 @@ print('Mean accuracy (training set):', clf.score(X_train, Y_train))
 print('Mean accuracy (validation set):', clf.score(X_test, Y_test))
 print('')
 
+print(X_train.shape)
+print(clf.coef_.shape)
+print(clf.intercept_.shape)
+
 # here comes the magic, provide a JAX version of the `proba` function
 def minimal_predict_proba(X):
     # create extra dimension when using 2 class labels to fix downstream tflite profiling/model testing
@@ -63,7 +68,18 @@ def minimal_predict_proba(X):
     prob = expit / expit.sum(axis=1, keepdims=True)
     return prob
 
+with open(os.path.join(args.out_directory, 'model.pkl'),'wb') as f:
+    pickle.dump(clf,f)
+
+with open(os.path.join(args.out_directory, 'model.pkl'), 'rb') as f:
+    clf2 = pickle.load(f)
+    print(type(clf2))
+    if type(clf2) == LogisticRegression:
+        print('sklearn.linear_model._logistic.LogisticRegression')
+
 print('Converting model...')
 convert_jax(X_train.shape[1:], minimal_predict_proba, os.path.join(args.out_directory, 'model.tflite'))
 print('Converting model OK')
 print('')
+
+print(str(vars(clf)))
