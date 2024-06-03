@@ -27,6 +27,9 @@ COPY dependencies/install_tensorflow.sh install_tensorflow.sh
 RUN /bin/bash install_tensorflow.sh && \
     rm install_tensorflow.sh
 
+# Force scipy version before installing jaxlib
+RUN pip3 install scipy==1.12
+
 # Install jaxlib (separate script as this requires a different command on M1 Macs)
 COPY dependencies/install_jaxlib.sh install_jaxlib.sh
 RUN /bin/bash install_jaxlib.sh && \

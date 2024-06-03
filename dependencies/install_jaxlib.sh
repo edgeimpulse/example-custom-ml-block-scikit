@@ -8,5 +8,5 @@ if [ "$UNAME" == "aarch64" ]; then
     pip3 install jaxlib-0.3.15-cp310-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl
     rm *.whl
 else
-    pip3 install jaxlib==0.3.15
+    pip3 install jaxlib==0.3.15 -f https://storage.googleapis.com/jax-releases/jax_releases.html
 fi
