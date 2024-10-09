@@ -27,7 +27,6 @@ You run this pipeline via Docker. This encapsulates all dependencies and package
 
     ```
     $ edge-impulse-blocks init
-    # Answer the questions, select "other" for 'What type of data does this model operate on?'
     ```
 
 7. Fetch new data via:
@@ -39,13 +38,13 @@ You run this pipeline via Docker. This encapsulates all dependencies and package
 8. Build the container:
 
     ```
-    $ docker build -t custom-ml-keras .
+    $ docker build -t custom-ml-scikit .
     ```
 
 9. Run the container to test the script (you don't need to rebuild the container if you make changes):
 
     ```
-    $ docker run --rm -v $PWD:/app custom-ml-keras --data-directory /app/data --epochs 30 --learning-rate 0.01 --out-directory out/
+    $ docker run --rm -v $PWD:/app custom-ml-scikit --data-directory /app/data --epochs 30 --learning-rate 0.01 --out-directory out/
     ```
 
 10. This creates two .tflite files and a saved model ZIP file in the 'out' directory.
@@ -81,3 +80,14 @@ You can also push this block back to Edge Impulse, that makes it available like 
     ```
 
 2. The block is now available under any of your projects via **Create impulse > Add new learning block**.
+
+## Changing the block type (e.g. regression)
+
+If you want to change the block type because you're classifying a different data type, or build a model with a different output format, run:
+
+```
+$ rm parameters.json  .ei-block-config
+$ edge-impulse-blocks init
+```
+
+And answer the wizard. This'll create a new parameters.json file.

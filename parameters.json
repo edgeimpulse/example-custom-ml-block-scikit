@@ -1,7 +1,20 @@
-[{
-    "name": "Number of training cycles",
-    "value": 1000,
-    "type": "int",
-    "help": "Number of epochs to train the logistic regression model on",
-    "param": "epochs"
-}]
+{
+    "version": 1,
+    "type": "machine-learning",
+    "info": {
+        "name": "Logistic regression (scikit-learn)",
+        "description": "Train a model using sklearn.linear_model.LogisticRegression",
+        "indRequiresGpu": false,
+        "operatesOn": "other",
+        "repositoryUrl": "https://github.com/edgeimpulse/example-custom-ml-block-scikit"
+    },
+    "parameters": [
+        {
+            "name": "Number of training cycles",
+            "value": 1000,
+            "type": "int",
+            "help": "Number of epochs to train the logistic regression model on",
+            "param": "epochs"
+        }
+    ]
+}

@@ -3,3 +3,4 @@ out/
 .ei-block-config
 __pycache__/
 print_hash.sh
+.DS_Store
