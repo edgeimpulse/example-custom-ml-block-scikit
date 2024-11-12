@@ -47,7 +47,7 @@ You run this pipeline via Docker. This encapsulates all dependencies and package
     $ docker run --rm -v $PWD:/app custom-ml-scikit --data-directory /app/data --epochs 30 --learning-rate 0.01 --out-directory out/
     ```
 
-10. This creates two .tflite files and a saved model ZIP file in the 'out' directory.
+10. This creates a .pkl file in the 'out' directory. This is a pickle file of the sklearn model which can be reinstantiated in python. The file will be picked up in the custom block and converted to tflite within studio.
 
 #### Adding extra dependencies
 
