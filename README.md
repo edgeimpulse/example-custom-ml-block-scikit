@@ -1,16 +1,10 @@
-# Custom Scikit Learn ML block example for Edge Impulse
+# Custom scikit-learn ML block example for Edge Impulse
 
-This repository is an example on how to [add a custom learning block](https://docs.edgeimpulse.com/docs/adding-custom-transfer-learning-models) to Edge Impulse. This repository contains a small logistic regression model built with Scikit Learn, and an inference function written in [JAX](https://jax.readthedocs.io/en/latest/).
+This repository is an example on how to [add a custom learning block](https://docs.edgeimpulse.com/docs/adding-custom-transfer-learning-models) to Edge Impulse. This repository contains a small logistic regression model built with scikit-learn.
 
 As a primer, read the [Custom learning blocks](https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/adding-custom-learning-blocks) page in the Edge Impulse docs.
 
 > **Note on epochs**: You'll want a lot of training cycles (1,000+ or so) here.
-
-## Inference function in JAX?
-
-Custom ML blocks in Edge Impulse need to output TFLite files, which is not possible from scikit-learn. One way around this is by re-implementing the inference function using [JAX](https://jax.readthedocs.io/en/latest/), then compiling that down to TFLite. This is done in `minimal_predict_proba` in [train.py](train.py) and should be relatively straight forward for many scikit-learn functions.
-
-If you need help porting these functions, or if there's any TFLite ops in your final model that are not supported by the EON Compiler (so you cannot run on device), then please let us know on the [forums](https://forum.edgeimpulse.com).
 
 ## Running the pipeline
 
@@ -47,7 +41,7 @@ You run this pipeline via Docker. This encapsulates all dependencies and package
     $ docker run --rm -v $PWD:/app custom-ml-scikit --data-directory /app/data --epochs 30 --learning-rate 0.01 --out-directory out/
     ```
 
-10. This creates a .pkl file in the 'out' directory. This is a pickle file of the sklearn model which can be reinstantiated in python. The file will be picked up in the custom block and converted to tflite within studio.
+10. This creates a .pkl file in the 'out' directory. This is a pickle file of the sklearn model which can be reinstantiated in python. The file will be picked up in the custom block and converted to a TFLite model within studio.
 
 #### Adding extra dependencies
 
@@ -71,7 +65,7 @@ To get up-to-date data from your project:
 
 ## Pushing the block back to Edge Impulse
 
-You can also push this block back to Edge Impulse, that makes it available like any other ML block so you can retrain your model when new data comes in, or deploy the model to device. See [Docs > Adding custom learning blocks](https://docs.edgeimpulse.com/docs/edge-impulse-studio/organizations/adding-custom-transfer-learning-models) for more information.
+You can also push this block back to Edge Impulse, that makes it available like any other ML block so you can retrain your model when new data comes in, or deploy the model to device.
 
 1. Push the block:
 
