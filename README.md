@@ -2,6 +2,17 @@
 
 This repository is an example on how to [add a custom learning block](https://docs.edgeimpulse.com/docs/adding-custom-transfer-learning-models) to Edge Impulse. This repository contains a small logistic regression model built with scikit-learn.
 
+NOTE: Only the following scikit-learn models are supported via the pickle conversion workflow presented below:
+- [Support vector Classification](https://scikit-learn.org/1.5/modules/generated/sklearn.svm.SVC.html) with linear kernel
+- [Linear regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
+- [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html)
+- [RidgeCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html)
+- [Random forest regresssor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)
+- [Logistic regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
+- [Ridge classifier](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClassifier.html)
+- [Ridge classifier CV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClassifierCV.html)
+- [Random forest classifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+
 As a primer, read the [Custom learning blocks](https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/adding-custom-learning-blocks) page in the Edge Impulse docs.
 
 > **Note on epochs**: You'll want a lot of training cycles (1,000+ or so) here.
